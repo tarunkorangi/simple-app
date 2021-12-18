@@ -3,9 +3,6 @@ pipeline {
     tools {
         maven 'maven3'
     }
-    options {
-        buildDiscarder logRotator(daysToKeepStr: '5', numToKeepStr: '7')
-    }
     stages{
         stage('Build'){
             steps{
@@ -28,7 +25,8 @@ pipeline {
                   nexusVersion: 'nexus3', 
                   protocol: 'http', 
                   repository: 'javahome-release', 
-                  version: '1.0.0'              }
+                  version: '1.0.0'  
+              }
             }
         }
     }
